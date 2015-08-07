@@ -35,9 +35,10 @@ class DocketPuller:
 
         def getTotalNumComments(self):
                 ###Get the total number of comments posted on a docket###
-                kvdict = json.loads(self.getCommentPage(1,10,0).decode())
-                self.numcomments = kvdict["totalNumRecords"]
-                return kvdict["totalNumRecords"]
+                if not hasattr(self,"numcomments"):
+                        kvdict = json.loads(self.getCommentPage(1,10,0).decode())
+                        self.numcomments = kvdict["totalNumRecords"]
+                return self.numcomments
                 
         def getAllComments(self):
                 ###Return a list of comment pages, fixed/sanitized for Crimson Hexagon###
