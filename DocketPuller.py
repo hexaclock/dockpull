@@ -80,10 +80,11 @@ class DocketPuller:
                 return json.dumps(dictlist)
 
 def runner():
+        APIKEY = ""
         if len(sys.argv) != 2:
                 print("Usage: python3 DocketPuller.py <DOCKETID>")
                 quit()
-        dp = DocketPuller("oV2HKbIr6qkHLXI6uj2HsZN4Z9K2OfbsPfzvk8UI",sys.argv[1])
+        dp = DocketPuller(APIKEY,sys.argv[1])
         commentslist = dp.getAllComments()
         print(commentslist[0])
 
