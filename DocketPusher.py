@@ -59,11 +59,14 @@ class DocketPusher:
         return True
 
 def main():
+    USER = ""
+    PASS = ""
+    APIKEY = ""
     if len(sys.argv) != 2:
         print("Usage: python3 DocketPusher.py <DOCKETID>")
         quit()
-    pusher = DocketPusher("intel@tenthwave.com","twintel2015",
-            "oV2HKbIr6qkHLXI6uj2HsZN4Z9K2OfbsPfzvk8UI",sys.argv[1])
+    pusher = DocketPusher(USER,PASS,
+            APIKEY,sys.argv[1])
     pusher.pushCommentPages()
 
 if __name__ == '__main__':
